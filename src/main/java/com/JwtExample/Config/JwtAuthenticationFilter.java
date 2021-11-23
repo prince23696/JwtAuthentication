@@ -33,12 +33,15 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         if (authorization != null && authorization.startsWith("Bearer ")) {
 
             jwtToken = authorization.substring(7);
+//            username = jwtUtil.extractUsername(jwtToken);
+
             try {
                 //     username = jwtUtil.extractUsername(jwtToken);
 
             } catch (Exception e) {
                 e.printStackTrace();
             }
+
 
             //security
             UserDetails userDetails = this.userService.loadUserByUsername(jwtUtil.extractUsername(jwtToken));

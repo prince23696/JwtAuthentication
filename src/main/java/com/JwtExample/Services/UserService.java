@@ -1,6 +1,7 @@
 package com.JwtExample.Services;
 
 import com.JwtExample.Entity.User;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;
@@ -11,10 +12,11 @@ public interface UserService extends UserDetailsService {
 
     public List<User> getAllUsers();
 
-    public User getUser(int id);
+    public ResponseEntity<?> getUser(int id);
 
-    public String deleteUser(int id);
+    public ResponseEntity<String> deleteUser(int id);
 
     public String updateUser(int id, User user);
 
+    public boolean isValidUser(int id);
 }
